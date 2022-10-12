@@ -14,6 +14,8 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 set laststatus=2
 set autoindent
 set nohlsearch
+set list
+set lcs+=space:·
 
 if has('nvim')
   call plug#begin()
@@ -25,9 +27,11 @@ if has('nvim')
   Plug 'preservim/nerdtree'
   call plug#end()
   let g:gruvbox_contrast_dark = 'hard'
+  let NERDTreeShowHidden=1
   autocmd vimenter * ++nested colorscheme gruvbox
 
   nnoremap <silent> <C-p> :Files<CR>
+  nnoremap <silent> <C-f> :Ag<CR>
   nnoremap <leader>n :NERDTreeFocus<CR>
   autocmd vimenter * NERDTree | wincmd p
   autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
