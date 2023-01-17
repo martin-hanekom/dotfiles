@@ -33,7 +33,8 @@ if has('nvim')
   nnoremap <silent> <C-p> :Files<CR>
   nnoremap <silent> <C-f> :Ag<CR>
   nnoremap <leader>n :NERDTreeFocus<CR>
-  autocmd vimenter * NERDTree | wincmd p
+  "autocmd vimenter * NERDTree | wincmd p
   autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+  nmap <C-n> :NERDTreeToggle<CR>
 endif
 
